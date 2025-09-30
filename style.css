@@ -1,0 +1,236 @@
+/* Estilos Gerais e Reset */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #333; /* Fundo escuro */
+    color: #f4f4f9; /* Texto claro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding: 20px 0; 
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Estilos da Página de Abertura (Landing Page) */
+#landing-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 100;
+}
+
+#landing-page h1 {
+    font-size: 3em;
+    margin-bottom: 30px;
+}
+
+#startButton {
+    padding: 15px 40px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    background-color: #ff69b4; /* Rosa forte */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#startButton:hover {
+    background-color: #ff3399;
+    transform: scale(1.05);
+}
+
+/* Estilos do Conteúdo Principal */
+#main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    position: relative; /* Necessário para Z-index */
+    z-index: 10; /* Fica acima dos corações */
+}
+
+/* ESTILOS DO CARROSSEL (Formato Vertical) */
+.carousel-container {
+    width: 90%;
+    max-width: 350px; 
+    height: 450px; 
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    position: relative;
+    border: 5px solid #ff69b4; /* Borda rosa para destaque */
+}
+
+.carousel-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* Garante que a imagem cubra o container, cortando se necessário */
+    object-fit: cover; 
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.carousel-item.active {
+    opacity: 1;
+}
+
+/* Estilos da Mensagem e Títulos */
+.anniversary-title {
+    font-size: 1.5em;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: white;
+    text-align: center;
+}
+
+.time-counter {
+    margin: 15px 0;
+    padding: 8px 15px;
+    background-color: #ff69b4;
+    color: white;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    display: inline-block;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.message-box {
+    background-color: #444; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+.message-box p {
+    margin: 10px 0;
+    font-size: 1em;
+    font-style: italic;
+}
+
+.love-message {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ff69b4; 
+    margin-top: 20px;
+}
+
+.signature {
+    margin-top: 15px;
+    font-style: normal;
+    font-size: 0.9em;
+    color: #bbb;
+}
+
+/* --- EFEITO DE CORAÇÕES FIXOS E FLUTUANTES --- */
+
+.fixed-heart {
+    position: fixed;
+    color: #ff69b4; /* Rosa Choque */
+    font-size: 2.2em; /* Tamanho maior */
+    z-index: 5; /* Garante que fique atrás do conteúdo principal (z-index 10) */
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
+    animation: float 4s ease-in-out infinite alternate;
+}
+
+/* Posições dos corações */
+.top-left {
+    top: 5vh;
+    left: 5vw;
+    font-size: 2em;
+    animation-delay: 0s;
+}
+
+.top-right {
+    top: 8vh;
+    right: 7vw;
+    font-size: 2.3em;
+    animation-delay: 2s;
+}
+
+.mid-left {
+    top: 25vh;
+    left: 2vw;
+    font-size: 2.5em;
+    animation-delay: 1.5s; 
+}
+
+.mid-right {
+    top: 20vh;
+    right: 3vw;
+    font-size: 1.8em;
+    animation-delay: 3.5s;
+}
+
+.bottom-left-corner {
+    bottom: 5vh;
+    left: 5vw;
+    font-size: 2.1em;
+    animation-delay: 4.5s;
+}
+
+.bottom-right-corner {
+    bottom: 8vh;
+    right: 4vw;
+    font-size: 2.4em;
+    animation-delay: 1s;
+}
+
+.bottom-mid-left {
+    bottom: 15vh;
+    left: 10vw;
+    font-size: 1.7em;
+    animation-delay: 0.8s;
+}
+
+.bottom-mid-right {
+    bottom: 12vh;
+    right: 12vw;
+    font-size: 2em;
+    animation-delay: 2.8s;
+}
+
+/* Animação de Flutuação */
+@keyframes float {
+    0% {
+        transform: translateY(0px) scale(1);
+    }
+    100% {
+        transform: translateY(-15px) scale(1.05); /* Sobe um pouco e aumenta levemente */
+    }
+}
+
+/* Esconde o player do YouTube */
+#player {
+    display: none;
+}

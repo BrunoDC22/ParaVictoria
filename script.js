@@ -1,9 +1,39 @@
+let player; // Variável global para o player do YouTube
+
+// *** AJUSTE O TEMPO DE INÍCIO DA MÚSICA AQUI (em segundos) ***
+// Exemplo: 1 minuto e 30 segundos = 90
+const START_TIME_SECONDS = 90; 
+// ************************************************************
 
 // *** DADOS DO NAMORO ***
 // Formato: Ano, Mês-1 (Agosto = 7), Dia
 const startDate = new Date(2025, 7, 30); 
 // ***********************
 
+// Função chamada automaticamente pelo YouTube IFrame API
+function onYouTubeIframeAPIReady() {
+    const videoId = document.getElementById('player').getAttribute('data-video-id');
+    
+    // Cria o player
+    player = new YT.Player('player', {
+        height: '0',
+        width: '0',
+        videoId: videoId,
+        playerVars: {
+            'autoplay': 0, 
+            'controls': 0,
+            'loop': 1,
+            'playlist': videoId 
+        },
+        events: {
+            'onReady': onPlayerReady 
+        }
+    });
+}
+
+function onPlayerReady(event) {
+    console.log("YouTube Player pronto.");
+}
 
 // Lógica do Carrossel e Contador
 document.addEventListener('DOMContentLoaded', () => {
@@ -61,6 +91,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lógica para a transição (Landing Page para Main Content)
     startButton.addEventListener('click', () => {
         // 1. Inicia a música no ponto definido
+        if (player) {
+             player.setVolume(100); 
+             player.seekTo(START_TIME_SECONDS, true);
+             player.playVideo();
+        }
 
         // 2. Esconde a Landing Page
         landingPage.classList.add('hidden');

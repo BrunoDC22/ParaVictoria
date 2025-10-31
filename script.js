@@ -61,11 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lógica para a transição (Landing Page para Main Content)
     startButton.addEventListener('click', () => {
         // 1. Inicia a música no ponto definido
-        if (player) {
-             player.setVolume(100); 
-             player.seekTo(START_TIME_SECONDS, true);
-             player.playVideo();
-        }
 
         // 2. Esconde a Landing Page
         landingPage.classList.add('hidden');

@@ -1,9 +1,8 @@
-// * AJUSTE O TEMPO DE INÍCIO DA MÚSICA AQUI (em segundos) *
-const START_TIME_SECONDS = 0; // Para começar do início
+// Ajuste do tempo de início da música (em segundos)
+const START_TIME_SECONDS = 0;
 
-// * DADOS DO NAMORO *
-const startDate = new Date(2025, 7, 30); 
-// *********
+// Dados do namoro
+const startDate = new Date(2025, 7, 30);
 
 document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.getElementById('startButton');
@@ -11,10 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainContent = document.getElementById('main-content');
     const items = document.querySelectorAll('.carousel-item');
     const timeCounterDiv = document.querySelector('.time-counter');
-    const audio = document.querySelector('audio'); // referência ao áudio
+    const audio = document.querySelector('audio');
     let currentIndex = 0;
 
-    // Função para calcular e exibir o tempo em tempo real
+    // Contador de tempo
     function updateCounter() {
         const now = new Date();
         const diff = now.getTime() - startDate.getTime();
@@ -27,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const seconds = totalSeconds % 60;
         const minutes = totalMinutes % 60;
         const hours = totalHours % 24;
-
         const months = Math.floor(totalDays / 30.436875);
         const days = Math.floor(totalDays - (months * 30.436875));
 
@@ -40,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 
-    // Função do carrossel
+    // Carrossel
     function startCarousel() {
         setInterval(() => {
             items[currentIndex].classList.remove('active');
@@ -49,28 +47,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 5000);
     }
 
-    // Inicia o contador
+    // Inicia contador
     setInterval(updateCounter, 1000);
-    updateCounter(); // exibe imediatamente
+    updateCounter();
 
     // Ao clicar no botão
     startButton.addEventListener('click', () => {
-        // 1. Inicia a música no ponto definido
+        // Música
         if (audio) {
             audio.currentTime = START_TIME_SECONDS;
             audio.play().catch(err => console.log("Erro ao tocar áudio:", err));
         }
 
-        // 2. Esconde a Landing Page
+        // Esconde Landing e mostra Main
         landingPage.classList.add('hidden');
-
-        // 3. Mostra o Conteúdo Principal
         mainContent.classList.remove('hidden');
+        mainContent.classList.add('visible');
 
-        // 4. Inicia o carrossel
+        // Inicia carrossel
         startCarousel();
 
-        // 5. Exibe a primeira foto
+        // Exibe primeira foto
         if (items.length > 0) items[0].classList.add('active');
     });
 });

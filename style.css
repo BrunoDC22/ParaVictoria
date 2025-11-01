@@ -2,21 +2,21 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #333; /* Fundo escuro */
-    color: #f4f4f9; /* Texto claro */
+    background-color: #333;
+    color: #f4f4f9;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     overflow-x: hidden;
-    padding: 20px 0; 
+    padding: 20px 0;
 }
 
 .hidden {
     display: none !important;
 }
 
-/* Estilos da Página de Abertura (Landing Page) */
+/* Página inicial */
 #landing-page {
     position: fixed;
     top: 0;
@@ -43,7 +43,7 @@ body {
     font-size: 1.5em;
     font-weight: bold;
     color: #333;
-    background-color: #ff69b4; /* Rosa forte */
+    background-color: #ff69b4;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -56,7 +56,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Estilos do Conteúdo Principal */
+/* Conteúdo Principal */
 #main-content {
     display: flex;
     flex-direction: column;
@@ -64,21 +64,21 @@ body {
     padding: 20px;
     max-width: 400px;
     width: 100%;
-    position: relative; /* Necessário para Z-index */
-    z-index: 10; /* Fica acima dos corações */
+    position: relative;
+    z-index: 10;
 }
 
-/* ESTILOS DO CARROSSEL (Formato Vertical) */
+/* Carrossel */
 .carousel-container {
     width: 90%;
-    max-width: 350px; 
-    height: 450px; 
+    max-width: 350px;
+    height: 450px;
     overflow: hidden;
     margin-bottom: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     position: relative;
-    border: 5px solid #ff69b4; /* Borda rosa para destaque */
+    border: 5px solid #ff69b4;
 }
 
 .carousel-inner {
@@ -91,8 +91,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    /* Garante que a imagem cubra o container, cortando se necessário */
-    object-fit: cover; 
+    object-fit: cover;
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
 }
@@ -101,7 +100,7 @@ body {
     opacity: 1;
 }
 
-/* Estilos da Mensagem e Títulos */
+/* Mensagem */
 .anniversary-title {
     font-size: 1.5em;
     margin-top: 10px;
@@ -123,7 +122,7 @@ body {
 }
 
 .message-box {
-    background-color: #444; 
+    background-color: #444;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -141,7 +140,7 @@ body {
 .love-message {
     font-size: 1.2em;
     font-weight: bold;
-    color: #ff69b4; 
+    color: #ff69b4;
     margin-top: 20px;
 }
 
@@ -152,85 +151,79 @@ body {
     color: #bbb;
 }
 
-/* --- EFEITO DE CORAÇÕES FIXOS E FLUTUANTES --- */
+/* Botão da seta */
+.arrow-button {
+    margin-top: 15px;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 8px 12px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
 
+.arrow-button:hover {
+    background-color: #ff3399;
+    transform: scale(1.1);
+}
+
+/* Nova caixa de texto */
+.extra-message {
+    background-color: #444;
+    color: #f4f4f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    line-height: 1.6;
+    max-width: 400px;
+    width: 90%;
+    animation: fadeIn 0.8s ease;
+}
+
+.extra-message h3 {
+    color: #ff69b4;
+    margin-bottom: 10px;
+}
+
+.extra-message p {
+    font-style: italic;
+    font-size: 1em;
+}
+
+/* Efeito de fade suave */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Corações flutuantes */
 .fixed-heart {
     position: fixed;
-    color: #ff69b4; /* Rosa Choque */
-    font-size: 2.2em; /* Tamanho maior */
-    z-index: 5; /* Garante que fique atrás do conteúdo principal (z-index 10) */
+    color: #ff69b4;
+    font-size: 2.2em;
+    z-index: 5;
     text-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
     animation: float 4s ease-in-out infinite alternate;
 }
 
-/* Posições dos corações */
-.top-left {
-    top: 5vh;
-    left: 5vw;
-    font-size: 2em;
-    animation-delay: 0s;
-}
+.top-left { top: 5vh; left: 5vw; font-size: 2em; animation-delay: 0s; }
+.top-right { top: 8vh; right: 7vw; font-size: 2.3em; animation-delay: 2s; }
+.mid-left { top: 25vh; left: 2vw; font-size: 2.5em; animation-delay: 1.5s; }
+.mid-right { top: 20vh; right: 3vw; font-size: 1.8em; animation-delay: 3.5s; }
+.bottom-left-corner { bottom: 5vh; left: 5vw; font-size: 2.1em; animation-delay: 4.5s; }
+.bottom-right-corner { bottom: 8vh; right: 4vw; font-size: 2.4em; animation-delay: 1s; }
+.bottom-mid-left { bottom: 15vh; left: 10vw; font-size: 1.7em; animation-delay: 0.8s; }
+.bottom-mid-right { bottom: 12vh; right: 12vw; font-size: 2em; animation-delay: 2.8s; }
 
-.top-right {
-    top: 8vh;
-    right: 7vw;
-    font-size: 2.3em;
-    animation-delay: 2s;
-}
-
-.mid-left {
-    top: 25vh;
-    left: 2vw;
-    font-size: 2.5em;
-    animation-delay: 1.5s; 
-}
-
-.mid-right {
-    top: 20vh;
-    right: 3vw;
-    font-size: 1.8em;
-    animation-delay: 3.5s;
-}
-
-.bottom-left-corner {
-    bottom: 5vh;
-    left: 5vw;
-    font-size: 2.1em;
-    animation-delay: 4.5s;
-}
-
-.bottom-right-corner {
-    bottom: 8vh;
-    right: 4vw;
-    font-size: 2.4em;
-    animation-delay: 1s;
-}
-
-.bottom-mid-left {
-    bottom: 15vh;
-    left: 10vw;
-    font-size: 1.7em;
-    animation-delay: 0.8s;
-}
-
-.bottom-mid-right {
-    bottom: 12vh;
-    right: 12vw;
-    font-size: 2em;
-    animation-delay: 2.8s;
-}
-
-/* Animação de Flutuação */
 @keyframes float {
-    0% {
-        transform: translateY(0px) scale(1);
-    }
-    100% {
-        transform: translateY(-15px) scale(1.05); /* Sobe um pouco e aumenta levemente */
-    }
+    0% { transform: translateY(0px) scale(1); }
+    100% { transform: translateY(-15px) scale(1.05); }
 }
 
-/* Esconde o player do YouTube */
 #player {
     display: none;
 }
